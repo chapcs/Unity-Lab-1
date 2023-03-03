@@ -19,7 +19,16 @@ public class BallBehaviour : MonoBehaviour
     void Update()
     {
         Vector3 axis = new Vector3(XRotation, YRotation, ZRotation);
+        // Vector4 ally = new Vector4(YRotation, XRotation, ZRotation);
         transform.RotateAround(Vector3.zero, axis, DegreesPerSecond * Time.deltaTime);
+        DegreesPerSecond += .1F;
+        if (DegreesPerSecond > 1000)
+            DegreesPerSecond = 180;
+        if (DegreesPerSecond > 360)
+        {
+            // transform.position = new Vector3(5.0f, )
+            // transform.RotateAround(Vector4.zero, ally, DegreesPerSecond * Time.deltaTime);
+        }
         // transform.Rotate(axis, DegreesPerSecond * Time.deltaTime);
         Debug.DrawRay(Vector3.zero, axis, Color.yellow, .5f);
     }
